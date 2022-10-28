@@ -12,6 +12,8 @@ export const Header=() => {
     <div className="flex  justify-between w-[300px]">
     <Link  to="/cart">cart</Link>
     <Link  to="/Detail">detail</Link>
+    <Link  to="/Login">Login</Link>
+    <Link  to="/register">register</Link>
     <Link  to="/">Home</Link>
     </div>
     

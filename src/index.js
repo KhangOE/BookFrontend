@@ -16,6 +16,8 @@ import { AdminLayout } from './layout/AdminLayout';
 import { Product } from './page/user/product';
 import { ListUser } from './page/admin/listUser';
 import { ProfileUSer} from './page/admin/profileuser';
+import { Login } from './page/user/login';
+import { Register } from './page/user/register';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -29,6 +31,8 @@ root.render(
           <Route path = "Detail" element = {<Detail></Detail>}></Route>
           <Route path="Cart" element={<Cart />} />
           <Route path="Product" element={<Product />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route index element={<Home />} />
      </Route>
 
