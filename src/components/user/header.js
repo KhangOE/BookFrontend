@@ -6,7 +6,7 @@ import {
    } from "react-router-dom";
 export const Header=() => {
     return <>
-    <div>
+    <div className="bg-white">
     <div>
         đây là header
     </div>
