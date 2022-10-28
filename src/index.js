@@ -25,8 +25,6 @@ root.render(
    <BrowserRouter>
    <App/>
       <Routes>
-
-     
         <Route path="/" element={<Layout  />} >
           <Route path = "Detail" element = {<Detail></Detail>}></Route>
           <Route path="Cart" element={<Cart />} />
@@ -34,13 +32,12 @@ root.render(
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route index element={<Home />} />
-     </Route>
-
-         <Route path="/admin/" element={<AdminLayout  />} >
+       </Route>
+       <Route path="/admin/" element={<AdminLayout  />} >
           <Route path = "users/:id" element = {<ProfileUSer/>}></Route>
           <Route path="users" element={<ListUser/>} />
           <Route index element={< ListUser />} />
-        </Route>
+       </Route>
      
       </Routes>
     </BrowserRouter>

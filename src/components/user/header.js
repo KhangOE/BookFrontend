@@ -1,4 +1,5 @@
 import React from "react";
+import { AiFillHome } from "react-icons/ai";
 import {
     Link,
   
@@ -14,7 +15,7 @@ export const Header=() => {
     <Link  to="/Detail">detail</Link>
     <Link  to="/Login">Login</Link>
     <Link  to="/register">register</Link>
-    <Link  to="/">Home</Link>
+    <Link className="flex items-center"  to="/">Home <AiFillHome/> </Link>
     </div>
     
     </div>
