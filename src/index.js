@@ -8,12 +8,12 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Home } from './page/user/home';
-import { Cart } from './page/user/cart';
-import { Detail } from './page/user/detail';
+import { Home } from './page/user/Home';
+import { Cart } from './page/user/Cart';
+import { Detail } from './page/user/Detail';
 import { Layout } from './layout/userLayout';
 import { AdminLayout } from './layout/AdminLayout';
-import { Product } from './page/user/product';
+import { Product } from './page/user/Product';
 import { ListUser } from './page/admin/listUser';
 import { ProfileUSer} from './page/admin/profileuser';
 import { Login } from './page/user/login';
