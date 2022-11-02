@@ -1,4 +1,10 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css";
 
 export const Home = (props) => {
   return (
@@ -15,7 +21,7 @@ export const Home = (props) => {
           </a>
         </div>
         {/* Header middle ở đây */}
-        <div className="bg-green-800 grid grid-cols-3 grid-rows-1 flex items-center p-2">
+        <div className="bg-green-900 grid grid-cols-3 grid-rows-1 flex items-center p-2">
           <div className="flex sm:justify-start md:justify-center">
             <a href="https://www.facebook.com/">
               <svg
@@ -87,12 +93,13 @@ export const Home = (props) => {
             </a>
           </div>
         </div>
+
         {/* Header bottom ở đây */}
         <div className="grid grid-flow-col grid-cols-8 mt-6">
           <div className="col-span-2">
             <a
               href="https://nhanam.vn/"
-              className=" flex sm:flex-row-reverse md:justify-between"
+              className=" flex flex-row-reverse md:justify-center"
             >
               <img
                 className="shrink-0"
@@ -101,6 +108,7 @@ export const Home = (props) => {
               />
             </a>
           </div>
+
           {/* Thanh tìm kiếm */}
           <div className="col-span-4 flex flex-row flex-r items-center sm:justify-items-start md:justify-center">
             <input
@@ -130,7 +138,7 @@ export const Home = (props) => {
             </button>
           </div>
           <div className="col-span-2">
-            <a href className="whitespace-nowrap sm:mr-2 md:mr-8">
+            <div className="inline-block whitespace-nowrap sm:mr-2 md:mr-8 hover:cursor-pointer hover:text-blue-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -144,8 +152,8 @@ export const Home = (props) => {
                 />
               </svg>
               Đăng nhập
-            </a>
-            <a href className="whitespace-nowrap sm:mr-2 md:mr-8">
+            </div>
+            <div className="inline-block whitespace-nowrap sm:mr-2 md:mr-8 hover:cursor-pointer hover:text-red-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -156,146 +164,75 @@ export const Home = (props) => {
                 <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
               </svg>
               Đăng kí
-            </a>
+            </div>
+
             {/* Giỏ hàng */}
-            <div className="inline-block whitespace-nowrap">
-              <a href>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-6 h-6 inline md:justify-center"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <div className="text-white w-6 h-6 inline-block absolute rounded-xl bg-green-900 text-center">
-                  0
-                </div>
-              </a>
+            <div className="inline-block whitespace-nowrap hover:cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-6 h-6 inline md:justify-center"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <div className="text-white w-6 h-6 inline-block absolute rounded-xl bg-green-900 text-center">
+                0
+              </div>
             </div>
           </div>
         </div>
       </header>
+
       {/* Banner ở đây*/}
       <div className="w-full h-fit mt-4 flex flex-col items-center relative">
         {/* Slider */}
-        <div className="swiper w-full absolute top-0 left-0 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
-          <div
-            className="swiper-wrapper w-full"
-            id="swiper-wrapper-119db1edc0266e2e"
-            aria-live="off"
-            style={{
-              "-webkit-transition-duration": "0ms",
-              "transition-duration": "0ms",
-              "-webkit-transform": "translate3d(-1968px, 0px, 0px)",
-              "-ms-transform": "translate3d(-1968px, 0px, 0px)",
-              transform: "translate3d(-1968px, 0px, 0px)",
-            }}
-          >
-            <div
-              className="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
-              data-swiper-slide-index={1}
-              role="group"
-              aria-label="2 / 2"
-              style={{ width: "984px" }}
-            >
-              <img
-                src="https://theme.hstatic.net/200000510041/1000879666/14/ms_banner_img3.jpg?v=128"
-                alt="Sách Nhã Nam"
-              />
-            </div>
-            {/* Slides */}
-            <div
-              className="swiper-slide swiper-slide-prev swiper-slide-duplicate-next"
-              data-swiper-slide-index={0}
-              role="group"
-              aria-label="1 / 2"
-              style={{ width: "984px" }}
-            >
+        <Swiper
+          className="w-full"
+          slidesPerView={1}
+          modules={[Navigation, Pagination, A11y, Autoplay]}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000 }}
+        >
+          <SwiperSlide>
+            <a href="https://nhanam.vn/collections/all">
               <img
                 src="https://theme.hstatic.net/200000510041/1000879666/14/ms_banner_img2.jpg?v=128"
                 alt="Sách mới"
               />
-            </div>
-            <div
-              className="swiper-slide swiper-slide-active"
-              data-swiper-slide-index={1}
-              role="group"
-              aria-label="2 / 2"
-              style={{ width: "984px" }}
-            >
+            </a>
+          </SwiperSlide>
+          <SwiperSlide>
+            <a href="https://nhanam.vn/collections/all">
               <img
                 src="https://theme.hstatic.net/200000510041/1000879666/14/ms_banner_img3.jpg?v=128"
                 alt="Sách Nhã Nam"
               />
-            </div>
-            <div
-              className="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev"
-              data-swiper-slide-index={0}
-              role="group"
-              aria-label="1 / 2"
-              style={{ width: "984px" }}
-            >
-              <img
-                src="https://theme.hstatic.net/200000510041/1000879666/14/ms_banner_img2.jpg?v=128"
-                alt="Sách mới"
-              />
-            </div>
-          </div>
-          <div className="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-            <span
-              className="swiper-pagination-bullet"
-              tabIndex={0}
-              role="button"
-              aria-label="Go to slide 1"
-            />
-            <span
-              className="swiper-pagination-bullet swiper-pagination-bullet-active"
-              tabIndex={0}
-              role="button"
-              aria-label="Go to slide 2"
-              aria-current="true"
-            />
-          </div>
-          <div
-            className="swiper-button-prev"
-            tabIndex={0}
-            role="button"
-            aria-label="Previous slide"
-            aria-controls="swiper-wrapper-119db1edc0266e2e"
-          />
-          <div
-            className="swiper-button-next"
-            tabIndex={0}
-            role="button"
-            aria-label="Next slide"
-            aria-controls="swiper-wrapper-119db1edc0266e2e"
-          />
-          <span
-            className="swiper-notification"
-            aria-live="assertive"
-            aria-atomic="true"
-          />
-        </div>
-        <ul className="w-fit h-fit font-medium text-gray-800 text-center flex flex-row box-border bg-green-500 opacity-80 absolute z-10 md:px-6">
-          <li className="p-3">
-            <a href>SẢN PHẨM ĐÃ XEM</a>
+            </a>
+          </SwiperSlide>
+        </Swiper>
+        <ul className="w-fit h-fit text-gray-800 text-center flex flex-row box-border bg-green-600 opacity-80 absolute z-10 md:px-6">
+          <li className="p-3 hover:cursor-pointer hover:text-gray-900 hover:opacity-100">
+            SẢN PHẨM ĐÃ XEM
           </li>
-          <li className="p-3">
-            <a href>SÁCH BÁN CHẠY</a>
+          <li className="p-3 hover:cursor-pointer hover:text-gray-900 hover:opacity-100">
+            SÁCH BÁN CHẠY
           </li>
-          <li className="p-3">
-            <a href>TẤT CẢ SẢN PHẨM</a>
+          <li className="p-3 hover:cursor-pointer hover:text-gray-900 hover:opacity-100">
+            TẤT CẢ SẢN PHẨM
           </li>
-          <li className="p-3">
-            <a href>SÁCH MỚI PHÁT HÀNH</a>
+          <li className="p-3 hover:cursor-pointer hover:text-gray-900 hover:opacity-100">
+            SÁCH MỚI PHÁT HÀNH
           </li>
         </ul>
       </div>
+
+      {/* ---------------------------------------------------------------------- */}
       {/* Nội dung trang */}
       <div className="mt-10 my-10 w-full flex flex-col items-center box-border">
         <div className="lg:w-3/5 sm:w-5/6">
@@ -330,12 +267,13 @@ export const Home = (props) => {
             </div>
           </div>
           {/* Tiêu đề */}
-          <h1 className="text-gray-600 font-bold text-2xl text-center w-fit p-3">
+          <div className="text-gray-600 font-bold text-2xl text-center p-3 box-border">
             SÁCH MỚI PHÁT HÀNH
-          </h1>
-          <h3 className="text-gray-600 text-center w-fit pb-3">
+          </div>
+          <div className="text-gray-600 text-center pb-3 font-light">
             Sách BookStore mới phát hành. Mời đọc giả chọn đọc.
-          </h3>
+          </div>
+
           {/* Danh mục sách mới phát hành */}
           <div className="w-full box-border border-2">
             <div className="grid sm:grid-cols-3 md:grid-cols-5 grid-rows-1 relative">
