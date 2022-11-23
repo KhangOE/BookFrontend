@@ -13,8 +13,10 @@ export const Layout = () => {
           <Header />
           <div className="">
             <Outlet></Outlet>
-         </div>
+          </div>
         </div>
+
+
         <Footer className="" />
       </div>
     </>

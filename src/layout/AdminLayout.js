@@ -1,5 +1,5 @@
 import {
-  Outlet
+    Outlet
 } from "react-router-dom";
 
 import { Footer } from "../components/admin/footer";
@@ -7,24 +7,17 @@ import { Header } from "../components/admin/header";
 import { AdminSide } from "../components/admin/sideBar";
 export const AdminLayout = () => {
     return <>
-    <div>
-    <Header/>
-    </div>
+        <Header />
+        <div className="w-full h-[60px]"></div>
+        <div className='flex w-full'>
+            <div className='hidden lg:block'>
+                <AdminSide />
+            </div >
+            <div className='flex-1 flex flex-col bg-[#F5F7FF] min-h-screen justify-between'>
+                <Outlet></Outlet>
+            </div>
+        </div>
 
-    <div className='flex w-full'>
-
-    <div className='hidden md:block'>
-        <AdminSide/>
-    </div >
-
-
-    <div className='flex-1 bg-[#F7F7F7]'>
-     <Outlet></Outlet>
-    </div>
-    
-    </div>
-    <div>
-        <Footer/>
-    </div>
+        <Footer />
     </>
 }
