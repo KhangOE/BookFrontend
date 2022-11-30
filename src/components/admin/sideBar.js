@@ -31,7 +31,7 @@ const SideBarList = [
   },
   {
     name: "Staff",
-    link: "/#",
+    link: "/admin/users/1",
     icon: "Group",
   },
   {
@@ -66,8 +66,8 @@ export const AdminSide = () => {
                         className={` ${
                           site === item.name
                             ? "text-white bg-[#4B49AC]"
-                            : `text-gray-500`
-                        }  text-sm flex flex-row justify-between items-center py-2 pl-4 pr-4   font-semibold  rounded-lg dark:text-white bg-white `}
+                            : `text-gray-500 hover:bg-[#c4c3f0] hover:text-gray-800` 
+                        }  text-sm flex flex-row justify-between items-center py-2 pl-4 pr-4    font-semibold  rounded-lg dark:text-white bg-white `}
                       >
                         <div className=" flex flex-row gap-4 justify-between items-center">
                           <span class="material-symbols-outlined">
