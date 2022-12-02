@@ -2,16 +2,19 @@ export const ProfileUSer = () => {
   return (
     <>
       <div className="font-sans text-[#33333] ">
-        <div className="p-6 sm:my-6 sm:mx-4 flex-wrap flex lg:flex-row w-auto rounded-md border border-[#ededed]  bg-[#fff] h-auto pb-8 gap-5">
-          <div className="sm:text-left text-center flex-1 sm:border-r-2 sm:border-b-0 border-b-2 border-dashed flex flex-col  sm:flex-row  gap-8">
-            <div class="sm:m-auto m-0 flex justify-center">
+        <div className="p-6 pb-0 sm:my-6 sm:mx-4 flex-wrap flex lg:flex-row w-auto rounded-md border border-[#ededed]  bg-[#fff] h-auto gap-5">
+        
+          <div className="w-[50%]">
+          <div className="  sm:text-left lg:m-0 justify-start flex-1  flex flex-col  sm:flex-row  gap-8">
+            <div class=" m-0 flex justify-center">
               <img
-                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY-WucszX-59HOKnbL0qsat2TUCeZ95FZ5uyg29SB08w&s"
                 className="rounded-full w-40"
                 alt="Avatar"
               />
             </div>
-            <div>
+
+            <div className="">
               <div className="font-hairline py-1 text-xl bold">
                 Lasender Maverel
               </div>
@@ -24,16 +27,38 @@ export const ProfileUSer = () => {
               <div className="font-hairline py-2 text-md italic text-gray-600">
                 Join in: 22-3-323
               </div>
-              <div>
-                <button className="bg-blue-300 h-10 rounded-sm w-auto px-6 m-6 bold">
-                  Send Message
-                </button>
-                <button className="bg-blue-300 h-10 rounded-sm w-auto px-6 m-6 bold">
-                  Ban
-                </button>
-              </div>
+           
             </div>
           </div>
+
+          <div className="pt-6 mt-4 border-t border-gray-400 border-dashed flex flex-row  justify-between px-12"> 
+            <div className="flex flex-col">
+                <span className="font-semibold   text-sm">
+                  Spending this month
+                </span>
+                <span className="font-seminbold text-lg text-gray-600">
+                   {
+                    ' > 10.000.000 vnd'
+                   }
+                </span>
+            </div>
+             <div className="flex flex-col">
+                 <span className="font-semibold text-sm">
+                Diamon
+                </span>
+              <span className="font-seminbold text-2xl text-gray-600">
+                <span class="material-symbols-outlined text-4xl text-sky-300">
+                                        Diamond
+                </span>
+              </span>
+            </div>
+          </div>
+
+           
+          </div>
+         
+
+
           <div className="flex-1  ">
             <div className="flex gap-8 py-2">
               <div className="bold text-xl min-w-[100px]">Phone:</div>
