@@ -1,3 +1,4 @@
+import PreviousMap from "postcss/lib/previous-map";
 import { useState } from "react";
 
 import { NavLink, Link } from "react-router-dom";
@@ -6,7 +7,7 @@ import { NavLink, Link } from "react-router-dom";
 const SideBarList = [
   {
     name: "Dashboard",
-    link: "/#",
+    link: "/admin/dashboard",
     icon: "grid_view",
   },
   {
@@ -47,27 +48,31 @@ const SideBarList = [
   },
 ];
 
-export const AdminSide = () => {
-  const [site, setSite] = useState("");
+export const AdminSide = (props) => {
+  const [site, setSite] = useState("Products");
 
   return (
     <>
-      <aside className="w-[230px] " aria-label="Sidebar">
+      <div className=" w-full h-screen bg-gray-800 fixed bg-opacity-50  translate-x-2 cursor-pointer lg:hidden" onClick={() => { props.setDside(state => !state) }}></div>
+      <aside className="w-[230px] fixed z-100000 min-h-screen bg-white mr-[-115px]" aria-label="Sidebar">
+
         <div className="overflow-y-auto py-4 px-3 bg-white rounded dark:bg-gray-800">
           <ul className="space-y-2">
             <div className="p-2"></div>
             {SideBarList.map((item) => {
               return (
                 <>
-                  <Link to={item.link}>
-                    <div className="bg-red" onClick={() => setSite(item.name)}>
-                      <a
+                  <Link to={item.link} z>
+                    <div className="" onClick={() => {
+                      setSite(item.name)
+                      props.setDside(state => !state)
+                    }}>
+                      <div
                         href="/#"
-                        className={` ${
-                          site === item.name
-                            ? "text-white bg-[#4B49AC]"
-                            : `text-gray-500 hover:bg-[#c4c3f0] hover:text-gray-800` 
-                        }  text-sm flex flex-row justify-between items-center py-2 pl-4 pr-4    font-semibold  rounded-lg dark:text-white bg-white `}
+                        className={` ${site === item.name
+                          ? "text-white bg-[#5153C7]"
+                          : `text-gray-500 hover:bg-[#c7c8f9] hover:text-gray-800`
+                          }  text-sm flex flex-row justify-between items-center py-2 pl-4 pr-4    font-semibold  rounded-lg dark:text-white bg-white `}
                       >
                         <div className=" flex flex-row gap-4 justify-between items-center">
                           <span class="material-symbols-outlined">
@@ -81,7 +86,7 @@ export const AdminSide = () => {
                             chevron_right
                           </span>
                         </span>
-                      </a>
+                      </div>
                     </div>
                   </Link>
                 </>
@@ -90,6 +95,9 @@ export const AdminSide = () => {
           </ul>
         </div>
       </aside>
+      {/* <div className=" w-[230px] min-h-screen bg-red-300">
+
+      </div> */}
     </>
   );
 };

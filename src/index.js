@@ -20,6 +20,7 @@ import { Login } from './page/user/login';
 import { Register } from './page/user/register';
 import { Addproduct } from './page/admin/addproduct';
 import { Products } from './page/admin/listProduct';
+import { Dashboard } from './page/admin/dashboard';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -37,10 +38,11 @@ root.render(
         </Route>
 
         <Route path="/admin/" element={<AdminLayout />} >
-          <Route path="users/:id" element={<ProfileUSer />}></Route>
+          <Route path="users/:id" element={<ProfileUSer />} />
           <Route path="users" element={<ListUser />} />
           <Route path="products" element={<Products />} />
           <Route path="addproduct" element={<Addproduct />} />
+          <Route path='dashboard' element={<Dashboard />} />
           <Route index element={< ListUser />} />
         </Route>
 

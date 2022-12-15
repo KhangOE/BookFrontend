@@ -1,17 +1,26 @@
+import { useEffect, useRef, useState } from 'react'
 import logo from '../../dinobb.png'
 
-export const Header = () => {
-
+export const Header = (props) => {
+    const [search, setSearch] = useState(false)
+    const input = useRef()
+    const onClick = () => {
+        input.current.focus()
+    }
+    useEffect(() => {
+        if (search) {
+            onClick()
+        }
+    }, [search])
     return <>
+        <div style={{ fontFamily: "nunito", zIndex: 100 }} class="z-100 h-[60px] shadow-md fixed bg-white w-full border-b border-gray-300 lg:px-12 px-4 flex justify-between py-4 items-center">
 
-
-        <div style={{ fontFamily: "nunito", zIndex: 100 }} class="z-100 h-[60px] shadow-md fixed bg-white w-full border-b border-gray-300 px-12 flex justify-between py-4 items-center">
-            <span class="material-symbols-outlined lg:hidden">
+            <span class="material-symbols-outlined lg:hidden cursor-pointer" onClick={() => { props.setDside(state => !state) }}>
                 menu
             </span>
             <div className="flex flex-row items-center h-full gap-16">
                 <img className="h-[100%] hidden lg:block" src={logo}></img>
-                <div class="w-[350px] hidden lg:block">
+                <div class={`lg:w-[350px] ${search ? "" : "hidden lg:block"}`}>
                     <form class="flex items-center">
                         <label for="simple-search" class="sr-only">Search</label>
                         <div class="relative w-full">
@@ -24,6 +33,8 @@ export const Header = () => {
                                 </svg>
                             </div>
                             <input type="text" id="simple-search"
+                                ref={input}
+                                onBlur={() => { setSearch(state => false) }}
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-2xl focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-1.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Search" required></input>
                         </div>
@@ -32,13 +43,16 @@ export const Header = () => {
             </div>
 
             <div className="flex flex-row items-center gap-8">
-                <span class="material-symbols-outlined lg:hidden">
+                <span class={`material-symbols-outlined cursor-pointer  ${search ? 'hidden' : 'block lg:hidden'}`} onClick={async () => {
+                    await setSearch(state => !state)
+
+                }}>
                     search
                 </span>
-                <span class="material-symbols-outlined">
+                <span class={`material-symbols-outlined cursor-pointer lg:block ${search ? 'hidden ' : ''}`} onClick={onClick}>
                     notifications
                 </span>
-                <span class="material-symbols-outlined">
+                <span class={`material-symbols-outlined cursor-pointer lg:block ${search ? 'hidden ' : ''}`}>
                     settings
                 </span>
                 <img class="w-10 h-10 rounded-full"
