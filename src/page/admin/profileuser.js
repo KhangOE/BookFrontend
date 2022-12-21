@@ -61,23 +61,23 @@ export const ProfileUSer = () => {
           </div>
 
           <div className="flex-1  ">
-            <div className="flex gap-4 lg:gap-6 py-2">
+            <div className="flex items-end gap-4 lg:gap-6 py-2">
               <div className="bold text-xl min-w-[60px] lg:min-w-[70px]">Phone:</div>
               <div>9876543210</div>
             </div>
-            <div className="flex gap-4 lg:gap-6 py-2">
+            <div className="flex items-end gap-4 lg:gap-6 py-2">
               <div className="bold text-xl min-w-[60px] lg:min-w-[70px]">adress:</div>
               <div>1861 Bayonne Ave, Manchester Township, NJ, 08759</div>
             </div>
-            <div className="flex gap-4 lg:gap-6 py-2">
+            <div className="flex items-end gap-4 lg:gap-6 py-2">
               <div className="bold text-xl min-w-[60px] lg:min-w-[70px]">gender:</div>
               <div>Male</div>
             </div>
-            <div className="flex gap-4 lg:gap-6 py-2">
+            <div className="flex items-end gap-4 lg:gap-6 py-2">
               <div className="bold text-xl min-w-[60px] lg:min-w-[70px]">Gmail:</div>
               <div>johndoe@example.com</div>
             </div>
-            <div className="flex gap-4 lg:gap-6 py-2">
+            <div className="flex items-end gap-4 lg:gap-6 py-2">
               <div className="bold text-xl min-w-[60px] lg:min-w-[70px]">Bird day:</div>
               <div> 3 August</div>
             </div>
@@ -175,9 +175,12 @@ export const ProfileUSer = () => {
 
               </td>
               <td className='text-amber-200 deli'>2</td>
-              <td className='date'>2</td>
+              <td className='date'>2ds</td>
             </tr>
           </table>
+
+
+
         </div>
       </div>
     </>

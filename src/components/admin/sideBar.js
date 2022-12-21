@@ -54,7 +54,7 @@ export const AdminSide = (props) => {
   return (
     <>
       <div className=" w-full h-screen bg-gray-800 fixed bg-opacity-50  translate-x-2 cursor-pointer lg:hidden" onClick={() => { props.setDside(state => !state) }}></div>
-      <aside className="w-[230px] fixed z-100000 min-h-screen bg-white mr-[-115px]" aria-label="Sidebar">
+      <aside className="w-[250px] fixed z-100000 min-h-screen bg-white mr-[-115px]" aria-label="Sidebar">
 
         <div className="overflow-y-auto py-4 px-3 bg-white rounded dark:bg-gray-800">
           <ul className="space-y-2">

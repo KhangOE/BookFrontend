@@ -1,6 +1,20 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import './addproduct.css'
 import { Addinventory } from "../../components/admin/addInventory"
+import { fictionCat } from "../../StaticData/category"
 export const Addproduct = () => {
+
+    const [fiction, setFiction] = useState([])
+
+    useEffect(() => {
+
+    }, [])
+    useEffect(() => {
+        console.log(123)
+    }, [fiction])
+    const addFiction = (e) => {
+        setFiction(state => [...state, e])
+    }
     return (<>
         <div style={{ fontFamily: '"Nunito Sans", sans-serif' }} className=" rounded-xl  lg:p-6">
             <div className="flex lg:flex-row flex-col justify-between ">
@@ -20,14 +34,14 @@ export const Addproduct = () => {
                     <button className=" mr-2 text-[#5153C7] font-semibold border border-gray-300 px-4 py-2 rounded-lg">
                         Save draft
                     </button>
-                    <button className=" mr-2 bg-[#5153C7] text-white px-4 py-2 font-semibold rounded-lg ">
+                    <button className=" mr-2 bg-[#5153C7] text-white px-4 py-2 font-semibold rounded-lg " onClick={() => { setFiction(state => [...state, '123']) }}>
                         publish product
                     </button>
 
                 </div>
             </div>
             <div className="flex flex-col min-w-full lg:flex-row gap-2 lg:gap-6">
-                <div className="lg:w-[64%] w-full flex flex-col gap-2 lg:gap-6   rounded-xl ">
+                <div className="lg:w-[61.8%] w-full flex flex-col gap-2 lg:gap-6   rounded-xl ">
                     <div className="bg-white p-6 flex flex-col gap-2 lg:gap-6 rounded-xl w-full">
                         <div>
                             <div className="font-bold text-xl mb-2">
@@ -122,88 +136,79 @@ export const Addproduct = () => {
                                 <span className=" font-bold text-lg">Fiction Categories</span>
                             </div>
 
-                            <div className="h-[120px] overflow-x-hidden overflow-y-scroll w-full rounded-lg border border-gray-300 mb-2 flex flex-wrap ">
-                                <div className=" bg-slate-100 mr-[4px] h-fit rounded-xl  px-2 py-1 min-w-[25%] flex items-center  font-bold ">
-                                    <span className="text-[#5153C7]">
-                                        Adventur
-                                    </span>
-                                    <span class="material-symbols-outlined ">
-                                        close
-                                    </span>
+                            <div className="h-[200px] overflow-y-scroll w-full rounded-lg border border-gray-300 mb-2  scrollbar ">
+                                <div className="w-full flex flex-wrap gap-2">
+
+
+                                    {
+                                        fiction.map(x => {
+                                            return (<>
+                                                <div className=" bg-slate-100 mr-[4px] h-fit rounded-xl  px-2 py-1 min-w-[25%] flex items-center  font-bold ">
+                                                    <span className="text-[#5153C7]">
+                                                        {x}
+                                                    </span>
+                                                    <span class="material-symbols-outlined" onClick={() => { setFiction(state => state.filter(e => { return e != x })) }}>
+                                                        close
+                                                    </span>
+
+                                                </div></>
+                                            )
+                                        })
+                                    }
+
+
 
                                 </div>
-                                <div className=" bg-slate-100 mr-[4px] h-fit rounded-xl  px-2 py-1 min-w-[25%] flex items-center  font-bold ">
-                                    <span className="text-[#5153C7]">
-                                        A
-                                    </span>
-                                    <span class="material-symbols-outlined ">
-                                        close
-                                    </span>
-
-                                </div>
-                                <div className=" bg-slate-100 mr-[4px] h-fit rounded-xl  px-2 py-1 min-w-[25%] flex items-center  font-bold ">
-                                    <span className="text-[#5153C7]">
-                                        Adv
-                                    </span>
-                                    <span class="material-symbols-outlined ">
-                                        close
-                                    </span>
-
-                                </div>
-                                <div className=" bg-slate-100 mr-[4px] h-fit rounded-xl  px-2 py-1 min-w-[25%] flex items-center  font-bold ">
-                                    <span className="text-[#5153C7]">
-                                        A
-                                    </span>
-                                    <span class="material-symbols-outlined ">
-                                        close
-                                    </span>
-
-                                </div>
-
                             </div>
 
-                            <select className="w-full border  border-gray-300 rounded-lg px-2 py-1" title={2} name id>
-                                <option value>Adventure stories.</option>
+                            <select className="w-full border  border-gray-300 rounded-lg px-2 py-1" defaultValue='l' title={2} name id onChange={e => { setFiction(state => [...state, e.target.value]) }}>
+
+                                <option value='Adventure stories.2' >Adventure stories.</option>
+                                {fictionCat.map(item => {
+                                    return (
+                                        <option value={item} >{item}</option>
+                                    )
+                                })}
                             </select>
                         </div>
                         <div >
                             <div>
-                                <span className=" font-bold text-lg">Nonfiction Categories</span>
+                                <span className=" font-bold text-lg">Fiction Categories</span>
                             </div>
 
-                            <div className="min-h-[200px] w-full rounded-lg border border-gray-300 mb-2 flex flex-row flex-wrap px-2 py-1 items-end gap-0 align-top">
-                                <div className=" bg-slate-100 mr-[4px] rounded-xl h-[10px] px-2 py-1 min-w-[25%] items-center align-middle font-bold flex flex-row justify-between">
-                                    <span className="text-[#5153C7]">
-                                        Adventure stories.
-                                    </span>
-                                    <span class="material-symbols-outlined ">
-                                        close
-                                    </span>
+                            <div className="h-[200px] overflow-y-scroll w-full rounded-lg border border-gray-300 mb-2  scrollbar ">
+                                <div className="w-full flex flex-wrap gap-2">
+
+
+                                    {
+                                        fiction.map(x => {
+                                            return (<>
+                                                <div className=" bg-slate-100 mr-[4px] h-fit rounded-xl  px-2 py-1 min-w-[25%] flex items-center  font-bold ">
+                                                    <span className="text-[#5153C7]">
+                                                        {x}
+                                                    </span>
+                                                    <span class="material-symbols-outlined" onClick={() => { setFiction(state => state.filter(e => { return e != x })) }}>
+                                                        close
+                                                    </span>
+
+                                                </div></>
+                                            )
+                                        })
+                                    }
+
+
 
                                 </div>
-                                <div className=" bg-slate-100 mr-[4px] rounded-xl h-fit px-2 py-1 min-w-[25%] items-center align-middle font-bold flex flex-row justify-between">
-                                    <span className="text-[#5153C7]">
-                                        Novel
-                                    </span>
-                                    <span class="material-symbols-outlined ">
-                                        close
-                                    </span>
-
-                                </div>
-                                <div className=" bg-slate-100 mr-[4px] rounded-xl h-fit px-2 py-1 min-w-[25%] items-center align-middle font-bold flex flex-row justify-between">
-                                    <span className="text-[#5153C7]">
-                                        Novel
-                                    </span>
-                                    <span class="material-symbols-outlined ">
-                                        close
-                                    </span>
-
-                                </div>
-
                             </div>
 
-                            <select className="w-full border  border-gray-300 rounded-lg p-2" title={2} name id>
-                                <option value>Adventure stories.</option>
+                            <select className="w-full border  border-gray-300 rounded-lg px-2 py-1" defaultValue='l' title={2} name id onChange={e => { setFiction(state => [...state, e.target.value]) }}>
+
+                                <option value='Adventure stories.2' >Adventure stories.</option>
+                                {fictionCat.map(item => {
+                                    return (
+                                        <option value={item} >{item}</option>
+                                    )
+                                })}
                             </select>
                         </div>
                         <div>

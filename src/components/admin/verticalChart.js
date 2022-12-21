@@ -7,6 +7,7 @@ import {
     Title,
     Tooltip,
     Legend,
+    scales
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import faker from 'faker';
@@ -17,23 +18,32 @@ ChartJS.register(
     BarElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    scales
 );
 
 export const options = {
+    scales: {
+        x: {
+            grid: {
+                display: false
+            }
+        },
+    },
     responsive: true,
     plugins: {
         legend: {
+            display: false,
             position: 'top',
         },
         title: {
-            display: true,
+            display: false,
             text: 'Chart.js Bar Chart',
         },
     },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
 
 export const data = {
     labels,
@@ -43,11 +53,7 @@ export const data = {
             data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
         },
-        {
-            label: 'Dataset 2',
-            data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        },
+
     ],
 };
 
